@@ -1,0 +1,15 @@
+{
+  "password-label": "Create your Master Password",
+  "password-placeholder": "Password",
+  "password-error-length-min": "Minimum 8 characters required",
+  "password-error-length-max": "Maximum 24 characters required",
+  "password-error-format": "At least one number and one capital letter are required",
+  "repeat-password-label": "Repeat your Master Password",
+  "repeat-password-placeholder": "Repeat your password",
+  "repeat-password-error": "Passwords do not match",
+  "required-field": "This field is required",
+  "hint-info": "You can also create a hint to help you remember your master password",
+  "hint-label": "Create your hint to help you remember your password (optional)",
+  "hint-placeholder": "Enter your hint",
+  "hint-error-length-max": "Maximum 255 characters"
+}

@@ -1,0 +1,8 @@
+{
+  "title-ok": "Tu Password Manager ya está creado",
+  "description-ok": "Autentícate con tu nombre de usuario y la contraseña que acabas de crear",
+  "link-ok": "Acceder",
+  "title-ko": "Ha habido un error",
+  "description-ko": "No hemos podido modificar tu Contraseña Maestra. Inténtalo más tarde",
+  "link-ko": "Volver a Password Manager"
+}

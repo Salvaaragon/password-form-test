@@ -2,7 +2,11 @@ import React from 'react';
 import error from './error.png';
 import success from './success.png';
 
-const Step3 = (props: { success?: boolean }) => (
+type Step3Props = {
+  success?: boolean;
+};
+
+const Step3: React.FC<Step3Props> = (props: { success?: boolean }) => (
   <img src={props.success ? success : error} />
 );
 
