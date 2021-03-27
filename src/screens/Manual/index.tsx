@@ -1,11 +1,11 @@
-import Step3 from '@Screens/Feedback';
-import Step2 from '@Screens/Form';
-import Step1 from '@Screens/ProductInformation';
+import OpenbankLogo from '@Assets/img/key_openbank.png';
 import React from 'react';
 import './App.scss';
-import OpenbankLogo from '@Assets/img/key_openbank.png';
+import Step3 from './Feedback';
+import Step2 from './Form';
+import Step1 from './ProductInformation';
 
-const App = () => {
+const Manual: React.FC = () => {
   return (
     <div className="App">
       <main className="App-content">
@@ -152,4 +152,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Manual;
