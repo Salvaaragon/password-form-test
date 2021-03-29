@@ -4,5 +4,7 @@
   "how-work": "Cómo funciona",
   "how-work-info": "En primer lugar, debes crear una contraseña diferente para tus pertenencias electrónicas. No podrás recuperar tu contraseña, así que recuérdala bien.",
   "what-saved": "Qué datos guardar",
-  "what-saved-info": "Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en un lugar seguro."
+  "what-saved-info": "Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en un lugar seguro.",
+  "check-terms": "Confirmo ser mayor de edad y acepto el tratamiento de mis datos",
+  "check-terms-error": "Debes aceptar los términos"
 }
