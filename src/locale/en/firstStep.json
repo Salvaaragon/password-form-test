@@ -3,5 +3,7 @@
   "info-master-password": "Create your master password: only you will be able to access your secrets with it.",
   "how-work": "Hot it works",
   "what-saved": "What data to save",
-  "what-saved-info": "For example, your card number, the PIN and PUK of your mobile phone, the serial number of one of your devices or any information you need to keep in a safe place."
+  "what-saved-info": "For example, your card number, the PIN and PUK of your mobile phone, the serial number of one of your devices or any information you need to keep in a safe place.",
+  "check-terms": "I confirm that I am of legal age and agree to the processing of my data.",
+  "check-terms-error": "Must accept terms"
 }

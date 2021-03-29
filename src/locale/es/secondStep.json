@@ -6,7 +6,7 @@
   "password-error-format": "Se requieren al menos un número y una mayúscula",
   "repeat-password-label": "Repite tu Contraseña Maestra",
   "repeat-password-placeholder": "Repite tu contraseña",
-  "repeat-password-error": "Las contraseñas no coinciden",
+  "repeat-password-error-match": "Las contraseñas no coinciden",
   "required-field": "Este campo es obligatorio",
   "hint-info": "También puedes crear una pista que te ayude a recordar tu contraseña maestra",
   "hint-label": "Crea tu pista para recordar tu contraseña (opcional)",
