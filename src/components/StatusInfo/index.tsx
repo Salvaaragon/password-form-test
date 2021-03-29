@@ -22,10 +22,10 @@ const StatusInfo: React.FC<StatusInfoProps> = (props: StatusInfoProps) => {
   return (
     <Grid container>
       <StatusInfoContainer container>
-        <IconContainer item xs={1}>
+        <IconContainer item xs={12} sm>
           <Icon style={IconProps} />
         </IconContainer>
-        <Grid item xs={10} container>
+        <Grid item xs={12} sm={11} container>
           <Grid item xs={12}>
             <CustomText text={title} fontSize="1.2rem" fontWeight="bold" />
           </Grid>
