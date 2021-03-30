@@ -107,8 +107,9 @@ const Form: React.FC = () => {
     dispatch({ type: SET_ACTIVE_STEP, payload: REQUEST_STATUS_STEP });
   };
 
-  const { handleSubmit, errors, control } = useForm<FormValues>({
+  const { handleSubmit, errors, control, formState } = useForm<FormValues>({
     defaultValues,
+    mode: 'all',
     reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
@@ -121,13 +122,14 @@ const Form: React.FC = () => {
             control={control}
             name="password"
             rules={{ required: true }}
-            render={({ onChange, value }) => (
+            render={({ onChange, value, onBlur }) => (
               <CustomInput
                 label={i18n.t('secondStep:password-label')}
                 placeholder={i18n.t('secondStep:password-placeholder')}
                 type={storedShowPassword ? 'text' : 'password'}
                 icon={storedShowPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconPassword}
+                onBlur={onBlur}
                 onChange={onChange}
                 value={value}
                 errors={errors.password?.message}
@@ -142,13 +144,14 @@ const Form: React.FC = () => {
             control={control}
             name="repeatPassword"
             rules={{ required: true }}
-            render={({ onChange, value }) => (
+            render={({ onChange, value, onBlur }) => (
               <CustomInput
                 label={i18n.t('secondStep:repeat-password-label')}
                 placeholder={i18n.t('secondStep:repeat-password-placeholder')}
                 type={storedShowRepeatPassword ? 'text' : 'password'}
                 icon={storedShowRepeatPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconRepeatPassword}
+                onBlur={onBlur}
                 onChange={onChange}
                 value={value}
                 errors={errors.repeatPassword?.message}
@@ -169,10 +172,11 @@ const Form: React.FC = () => {
             control={control}
             name="passwordHint"
             rules={{ required: true }}
-            render={({ onChange, value }) => (
+            render={({ onChange, value, onBlur }) => (
               <CustomInput
                 label={i18n.t('secondStep:hint-label')}
                 placeholder={i18n.t('secondStep:hint-placeholder')}
+                onBlur={onBlur}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                   onChange(event.target.value)
                 }
@@ -185,7 +189,10 @@ const Form: React.FC = () => {
         </DataContainer>
       </DataContainer>
 
-      <WizardFooter onClickCancel={onClickCancel} />
+      <WizardFooter
+        onClickCancel={onClickCancel}
+        disableButton={!formState.isValid}
+      />
     </form>
   );
 };

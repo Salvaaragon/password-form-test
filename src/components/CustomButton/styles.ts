@@ -25,5 +25,11 @@ export const CustomBtn = styled(Button).attrs((props: CustomBtnProps) => props)`
       padding-top: 0.2rem;
       padding-bottom: 0.2rem;
     }
+
+    &.Mui-disabled {
+      color: ${(props) => props.textcolor};
+      background-color: ${(props) => props.backgroundcolor};
+      opacity: 0.5;
+    }
   }
 `;
