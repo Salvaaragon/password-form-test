@@ -59,6 +59,7 @@ En el fichero `package.json`, se ha configurado jest para permitir el uso de ali
 
     .
     ├── public
+    │   └── locales                 # Traducciones
     ├── src                         # Contenido de nuestra aplicación
     │   ├── assets                  # Imágenes e iconos
     │   ├── components              # Componentes desarrollados
@@ -69,7 +70,6 @@ En el fichero `package.json`, se ha configurado jest para permitir el uso de ali
     │   │       ├── styles.ts       # Estilos
     │   │       └── types.ts        # Tipos customizados
     │   ├── constants               # Constantes globales
-    │   ├── locale                 # Traducciones
     │   ├── router                  # Configuración de rutas
     │   ├── screens                 # Pantallas desarrolladas. A su vez pueden contener componentes propios
     │   ├── services                # Configuración de servicios externos (api, i18n, ...)
