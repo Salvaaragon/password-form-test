@@ -1,13 +1,13 @@
 import { MuiThemeProvider } from '@material-ui/core';
 import Router from '@Router';
 import i18n from '@Services/i18n';
+import configureStore from '@Store/configStore';
 import theme from '@Styles/theme';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { Provider } from 'react-redux';
-import configureStore from '@Store/configStore';
 
 const App: React.FC = () => {
   const { store } = configureStore();
