@@ -1,28 +1,26 @@
 import CustomCheckInput from '@Components/CustomCheckInput';
-import { SET_PASSWORD } from '@Components/WizardForm/constants';
-import { DataContainer } from '@Components/WizardForm/WizardContent/styles';
-import WizardFooter from '@Components/WizardForm/WizardFooter';
+import { SET_PASSWORD_STEP } from '@Constants/passwordForm';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { DataContainer } from '@Screens/FormView/components/WizardContent/styles';
+import WizardFooter from '@Screens/FormView/components/WizardFooter';
 import i18n from '@Services/i18n';
+import { CHECK_TERMS, SET_ACTIVE_STEP } from '@Store/constants/passwordForm';
+import { RootState } from '@Store/reducers';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
-import { FormProps } from './types';
+import { FormValues } from './types';
 
-type FormValues = {
-  checkTerms: boolean;
-};
+const Form: React.FC = () => {
+  const dispatch = useDispatch();
 
-const defaultValues = {
-  checkTerms: false,
-};
+  const storedCheckTerms = useSelector(
+    (state: RootState) => state.passwordFormReducer.checkTerms,
+  );
 
-const Form: React.FC<FormProps> = (props: FormProps) => {
-  const { setStep } = props;
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = (data: FormValues) => {
-    setStep(SET_PASSWORD);
+  const defaultValues = {
+    checkTerms: storedCheckTerms,
   };
 
   const schema = yup.object().shape({
@@ -31,8 +29,13 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
       .oneOf([true], i18n.t('firstStep:check-terms-error')),
   });
 
+  const onSubmit = (data: FormValues) => {
+    dispatch({ type: CHECK_TERMS, payload: data.checkTerms });
+    dispatch({ type: SET_ACTIVE_STEP, payload: SET_PASSWORD_STEP });
+  };
+
   const { handleSubmit, errors, control } = useForm<FormValues>({
-    defaultValues: defaultValues,
+    defaultValues,
     reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
