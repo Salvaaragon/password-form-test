@@ -1,12 +1,12 @@
+import LockIcon from '@Assets/img/lock-icon.svg';
+import MasterIcon from '@Assets/img/master-icon.svg';
 import CustomText from '@Components/CustomText';
 import TextWithIcon from '@Components/TextWithIcon';
+import { Grid } from '@material-ui/core';
 import {
   DataContainer,
   TitleLine,
 } from '@Screens/FormView/components/WizardContent/styles';
-import { Grid } from '@material-ui/core';
-import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
-import LockIcon from '@material-ui/icons/Lock';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Form from './Form';
@@ -26,15 +26,12 @@ const FirstStep: React.FC = () => {
       </DataContainer>
       <TitleLine item></TitleLine>
       <DataContainer container item xs={12} justify="center">
-        <InfoIconContainer item xs={12} md={6} justify="center">
-          <TextWithIcon
-            icon={EnhancedEncryptionIcon}
-            text={i18n.t('firstStep:info-save')}
-          />
+        <InfoIconContainer item xs={12} md={6} container justify="center">
+          <TextWithIcon icon={LockIcon} text={i18n.t('firstStep:info-save')} />
         </InfoIconContainer>
-        <InfoIconContainer item xs={12} md={6} justify="center">
+        <InfoIconContainer item xs={12} md={6} container justify="center">
           <TextWithIcon
-            icon={LockIcon}
+            icon={MasterIcon}
             text={i18n.t('firstStep:info-master-password')}
           />
         </InfoIconContainer>

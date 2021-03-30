@@ -34,8 +34,9 @@ const Form: React.FC = () => {
     dispatch({ type: SET_ACTIVE_STEP, payload: SET_PASSWORD_STEP });
   };
 
-  const { handleSubmit, errors, control } = useForm<FormValues>({
+  const { handleSubmit, errors, control, formState } = useForm<FormValues>({
     defaultValues,
+    mode: 'all',
     reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
@@ -60,7 +61,7 @@ const Form: React.FC = () => {
           )}
         ></Controller>
       </DataContainer>
-      <WizardFooter />
+      <WizardFooter disableButton={!formState.isValid} />
     </form>
   );
 };

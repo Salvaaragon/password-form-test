@@ -15,8 +15,7 @@
           "@Screens": "./src/screens",
           "@Store": "./src/store",
           "@Styles": "./src/styles",
-          "@Types": "./src/types",
-          "@Utils": "./src/utils"
+          "@Types": "./src/types"
         }
       }
     ]

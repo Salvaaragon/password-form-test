@@ -10,7 +10,7 @@ import { WizardFooterProps } from './types';
 const WizardFooter: React.FC<WizardFooterProps> = (
   props: WizardFooterProps,
 ) => {
-  const { onClickCancel } = props;
+  const { disableButton, onClickCancel } = props;
   const { i18n } = useTranslation();
   const theme = useTheme();
 
@@ -35,6 +35,7 @@ const WizardFooter: React.FC<WizardFooterProps> = (
             text={i18n.t('general:next')}
             textcolor="white"
             type="submit"
+            disabled={disableButton}
           />
         </Grid>
       </Grid>

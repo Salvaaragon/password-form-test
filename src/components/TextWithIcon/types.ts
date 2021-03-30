@@ -3,5 +3,5 @@ import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 export type TextWithIconProps = {
   text: string;
-  icon: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>;
+  icon: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>> | string;
 };
