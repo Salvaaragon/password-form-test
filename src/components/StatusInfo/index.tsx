@@ -1,10 +1,10 @@
 import CustomLink from '@Components/CustomLink';
 import CustomText from '@Components/CustomText';
 import { Grid, useTheme } from '@material-ui/core';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import React from 'react';
 import { IconContainer, LinkContainer, StatusInfoContainer } from './styles';
 import { StatusInfoProps } from './types';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 const StatusInfo: React.FC<StatusInfoProps> = (props: StatusInfoProps) => {
   const { description, icon, onClickLink, textLink, title, type } = props;

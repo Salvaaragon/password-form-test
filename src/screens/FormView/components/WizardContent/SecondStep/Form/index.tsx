@@ -1,48 +1,59 @@
 import CustomInput from '@Components/CustomInput';
 import CustomText from '@Components/CustomText';
-import { ACCEPT_TERMS, REQUEST_STATUS } from '@Components/WizardForm/constants';
-import { DataContainer } from '@Components/WizardForm/WizardContent/styles';
-import WizardFooter from '@Components/WizardForm/WizardFooter';
+import {
+  ACCEPT_TERMS_STEP,
+  REQUEST_STATUS_STEP,
+} from '@Constants/passwordForm';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import React, { useState } from 'react';
+import { DataContainer } from '@Screens/FormView/components/WizardContent/styles';
+import WizardFooter from '@Screens/FormView/components/WizardFooter';
+import {
+  POST_FORM,
+  SET_ACTIVE_STEP,
+  SET_HINT,
+  SET_PASSWORD,
+  SET_REPEAT_PASSWORD,
+  SET_SHOW_PASSWORD,
+  SET_SHOW_REPEAT_PASSWORD,
+} from '@Store/constants/passwordForm';
+import { RootState } from '@Store/reducers';
+import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import {
   HINT_MAX_LENGTH,
   PASSWORD_MAX_LENGTH,
   PASSWORD_MIN_LENGTH,
 } from './constants';
-import { FormProps } from './types';
+import { FormValues } from './types';
 
-type FormValues = {
-  password: string;
-  repeatPassword: string;
-  passwordHint: string;
-};
-
-const defaultValues = {
-  password: '',
-  repeatPassword: '',
-  passwordHint: '',
-};
-
-const Form: React.FC<FormProps> = (props: FormProps) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
-
-  const { setStep } = props;
+const Form: React.FC = () => {
+  const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
-  const handleClickIconPassword = () => setShowPassword(!showPassword);
-  const handleClickIconRepeatPassword = () =>
-    setShowRepeatPassword(!showRepeatPassword);
+  const storedPassword = useSelector(
+    (state: RootState) => state.passwordFormReducer.password,
+  );
+  const storedRepeatPassword = useSelector(
+    (state: RootState) => state.passwordFormReducer.repeatPassword,
+  );
+  const storedHint = useSelector(
+    (state: RootState) => state.passwordFormReducer.hint,
+  );
+  const storedShowPassword = useSelector(
+    (state: RootState) => state.passwordFormReducer.showPassword,
+  );
+  const storedShowRepeatPassword = useSelector(
+    (state: RootState) => state.passwordFormReducer.showRepeatPassword,
+  );
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = (data: FormValues) => {
-    console.log('submit');
-    setStep(REQUEST_STATUS);
+  const defaultValues = {
+    password: storedPassword,
+    repeatPassword: storedRepeatPassword,
+    passwordHint: storedHint,
   };
 
   const schema = yup.object().shape({
@@ -67,8 +78,37 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
       .max(HINT_MAX_LENGTH, i18n.t('secondStep:hint-error-length-max')),
   });
 
+  const handleClickIconPassword = () => {
+    dispatch({ type: SET_SHOW_PASSWORD, payload: !storedShowPassword });
+  };
+
+  const handleClickIconRepeatPassword = () =>
+    dispatch({
+      type: SET_SHOW_REPEAT_PASSWORD,
+      payload: !storedShowRepeatPassword,
+    });
+
+  const onClickCancel = () => {
+    dispatch({ type: SET_ACTIVE_STEP, payload: ACCEPT_TERMS_STEP });
+  };
+
+  const onSubmit = (data: FormValues) => {
+    dispatch({ type: SET_PASSWORD, payload: data.password });
+    dispatch({ type: SET_REPEAT_PASSWORD, payload: data.repeatPassword });
+    dispatch({ type: SET_HINT, payload: data.passwordHint });
+    dispatch({
+      type: POST_FORM,
+      payload: {
+        password: data.password,
+        repeatPassword: data.repeatPassword,
+        hint: data.passwordHint,
+      },
+    });
+    dispatch({ type: SET_ACTIVE_STEP, payload: REQUEST_STATUS_STEP });
+  };
+
   const { handleSubmit, errors, control } = useForm<FormValues>({
-    defaultValues: defaultValues,
+    defaultValues,
     reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
@@ -85,8 +125,8 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
               <CustomInput
                 label={i18n.t('secondStep:password-label')}
                 placeholder={i18n.t('secondStep:password-placeholder')}
-                type={showPassword ? 'text' : 'password'}
-                icon={showPassword ? Visibility : VisibilityOff}
+                type={storedShowPassword ? 'text' : 'password'}
+                icon={storedShowPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconPassword}
                 onChange={onChange}
                 value={value}
@@ -106,8 +146,8 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
               <CustomInput
                 label={i18n.t('secondStep:repeat-password-label')}
                 placeholder={i18n.t('secondStep:repeat-password-placeholder')}
-                type={showRepeatPassword ? 'text' : 'password'}
-                icon={showRepeatPassword ? Visibility : VisibilityOff}
+                type={storedShowRepeatPassword ? 'text' : 'password'}
+                icon={storedShowRepeatPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconRepeatPassword}
                 onChange={onChange}
                 value={value}
@@ -144,7 +184,8 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
           ></Controller>
         </DataContainer>
       </DataContainer>
-      <WizardFooter onClickCancel={() => setStep(ACCEPT_TERMS)} />
+
+      <WizardFooter onClickCancel={onClickCancel} />
     </form>
   );
 };

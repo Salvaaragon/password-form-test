@@ -1,17 +1,18 @@
 import CustomText from '@Components/CustomText';
 import TextWithIcon from '@Components/TextWithIcon';
+import {
+  DataContainer,
+  TitleLine,
+} from '@Screens/FormView/components/WizardContent/styles';
 import { Grid } from '@material-ui/core';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import LockIcon from '@material-ui/icons/Lock';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DataContainer } from '../styles';
 import Form from './Form';
 import { InfoIconContainer, InfoTextContainer } from './styles';
-import { FirstStepProps } from './types';
 
-const FirstStep: React.FC<FirstStepProps> = (props: FirstStepProps) => {
-  const { setStep } = props;
+const FirstStep: React.FC = () => {
   const { i18n } = useTranslation();
 
   return (
@@ -23,6 +24,7 @@ const FirstStep: React.FC<FirstStepProps> = (props: FirstStepProps) => {
           fontWeight="bold"
         />
       </DataContainer>
+      <TitleLine item></TitleLine>
       <DataContainer container item xs={12} justify="center">
         <InfoIconContainer item xs={12} md={6} justify="center">
           <TextWithIcon
@@ -68,7 +70,7 @@ const FirstStep: React.FC<FirstStepProps> = (props: FirstStepProps) => {
         </Grid>
       </InfoTextContainer>
       <Grid item xs={12}>
-        <Form setStep={setStep} />
+        <Form />
       </Grid>
     </Grid>
   );

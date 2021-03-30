@@ -1,30 +1,19 @@
-import {
-  Grid,
-  Step,
-  StepConnector,
-  StepLabel,
-  Stepper,
-} from '@material-ui/core';
+import { Step, StepConnector, StepLabel, Stepper } from '@material-ui/core';
 import styled from 'styled-components';
 
-export const WizardHeaderGrid = styled(Grid)`
-  background-color: ${(props) => props.theme.palette.terciary.main};
-  border-bottom: solid 1px ${(props) => props.theme.palette.terciary.dark};
-`;
-
-export const WizardStepper = styled(Stepper)`
+export const CustomStepper = styled(Stepper)`
   &.MuiStepper-root {
     background-color: transparent;
   }
 `;
 
-export const WizardStep = styled(Step)`
+export const CustomStep = styled(Step)`
   height: 100%;
   align-items: center;
   display: flex;
 `;
 
-export const WizardStepLabel = styled(StepLabel)`
+export const CustomStepLabel = styled(StepLabel)`
   padding: 0rem 2rem;
   margin: auto;
 
@@ -35,10 +24,15 @@ export const WizardStepLabel = styled(StepLabel)`
       color: ${(props) => props.theme.palette.secondary.main};
       font-size: 2rem;
     }
+
+    &.MuiStepIcon-completed {
+      background: white;
+      border-radius: 100%;
+    }
   }
 `;
 
-export const WizardStepConnector = styled(StepConnector)`
+export const CustomStepConnector = styled(StepConnector)`
   &.MuiStepConnector-alternativeLabel {
     top: 15px;
     left: calc(-50% + 12px);

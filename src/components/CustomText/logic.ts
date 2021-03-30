@@ -1,6 +1,6 @@
 import {
-  TextColorType,
   LoadTextColorFunction,
+  TextColorType,
   TypographyColors,
   TypographyColorType,
 } from './types';
