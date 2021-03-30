@@ -10,7 +10,7 @@ type SubmitForm = (
   optionalQuestion: string,
 ) => Promise<unknown>;
 
-const submitForm: SubmitForm = (
+export const submitForm: SubmitForm = (
   pass: string,
   repass: string,
   optionalQuestion: string,
@@ -21,5 +21,3 @@ const submitForm: SubmitForm = (
       3000,
     ),
   );
-
-export default { submitForm };
