@@ -7,6 +7,7 @@
         "root": ".",
         "alias": {
           "@Assets": "./src/assets",
+          "@Constants": "./src/constants",
           "@Components": "./src/components",
           "@Locale": "./src/locale",
           "@Router": "./src/router",
@@ -14,6 +15,7 @@
           "@Screens": "./src/screens",
           "@Store": "./src/store",
           "@Styles": "./src/styles",
+          "@Types": "./src/types",
           "@Utils": "./src/utils"
         }
       }
