@@ -1,6 +1,4 @@
-import { StepType } from '@Types/passwordForm';
-
 export type WizardStepperProps = {
-  activeStep: StepType;
-  steps: StepType[];
+  activeStep: number;
+  steps: number[];
 };
