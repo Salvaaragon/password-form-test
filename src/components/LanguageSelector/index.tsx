@@ -26,7 +26,7 @@ const LanguageSelector = () => {
       />
       <IconButton
         ariaLabel="en"
-        disabled={i18n.language === 'en'}
+        disabled={i18n.language === 'en' || i18n.language === 'en-US'}
         iconAlt="english"
         iconSrc={EnglandFlag}
         iconWidth="1.5rem"
