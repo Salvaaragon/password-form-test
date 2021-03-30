@@ -1,10 +1,10 @@
-import { StepType } from '@Components/WizardForm/types';
 import { ReduxAction } from '@Store/actions';
 import {
   CHECK_TERMS,
   POST_FORM,
   POST_FORM_DONE,
   POST_FORM_ERROR,
+  RESET_FORM,
   SET_ACTIVE_STEP,
   SET_HINT,
   SET_PASSWORD,
@@ -12,6 +12,7 @@ import {
   SET_SHOW_PASSWORD,
   SET_SHOW_REPEAT_PASSWORD,
 } from '@Store/constants/passwordForm';
+import { StepType } from '@Types/passwordForm';
 
 export interface PasswordFormState {
   activeStep: StepType;
@@ -104,6 +105,8 @@ export const PasswordFormReducer = (
         ...state,
         showRepeatPassword: action.payload,
       };
+    case RESET_FORM:
+      return initialState;
 
     default:
       return state;

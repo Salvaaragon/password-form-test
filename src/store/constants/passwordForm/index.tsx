@@ -8,3 +8,4 @@ export const SET_HINT = 'SET_HIT';
 export const POST_FORM = 'POST_FORM';
 export const POST_FORM_DONE = 'POST_FORM_DONE';
 export const POST_FORM_ERROR = 'POST_FORM_ERROR';
+export const RESET_FORM = 'RESET_FORM';
