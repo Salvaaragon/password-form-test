@@ -22,6 +22,7 @@ const LanguageSelector = () => {
         iconAlt="spanish"
         iconSrc={SpanishFlag}
         iconWidth="1.5rem"
+        id="language-es"
         onClick={() => changeLanguage('es')}
       />
       <IconButton
@@ -30,6 +31,7 @@ const LanguageSelector = () => {
         iconAlt="english"
         iconSrc={EnglandFlag}
         iconWidth="1.5rem"
+        id="language-en"
         onClick={() => changeLanguage('en')}
       />
     </div>

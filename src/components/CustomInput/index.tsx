@@ -10,7 +10,7 @@ import { CustomInputLabel, CustomOutlinedInput } from './styles';
 import { CustomInputProps } from './types';
 
 const CustomInput: React.FC<CustomInputProps> = (props: CustomInputProps) => {
-  const { label, errors, icon, iconClick, ...restProps } = props;
+  const { label, errors, icon, iconClick, iconId, ...restProps } = props;
   const Icon = icon;
 
   return (
@@ -32,7 +32,7 @@ const CustomInput: React.FC<CustomInputProps> = (props: CustomInputProps) => {
             endAdornment={
               Icon && (
                 <InputAdornment position="end">
-                  <IconButton onClick={iconClick} edge="end">
+                  <IconButton id={iconId} onClick={iconClick} edge="end">
                     <Icon />
                   </IconButton>
                 </InputAdornment>

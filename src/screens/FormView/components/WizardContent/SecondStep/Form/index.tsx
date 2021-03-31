@@ -124,11 +124,13 @@ const Form: React.FC = () => {
             rules={{ required: true }}
             render={({ onChange, value, onBlur }) => (
               <CustomInput
+                id="password"
                 label={i18n.t('secondStep:password-label')}
                 placeholder={i18n.t('secondStep:password-placeholder')}
                 type={storedShowPassword ? 'text' : 'password'}
                 icon={storedShowPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconPassword}
+                iconId="password-icon"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -146,11 +148,13 @@ const Form: React.FC = () => {
             rules={{ required: true }}
             render={({ onChange, value, onBlur }) => (
               <CustomInput
+                id="repeat-password"
                 label={i18n.t('secondStep:repeat-password-label')}
                 placeholder={i18n.t('secondStep:repeat-password-placeholder')}
                 type={storedShowRepeatPassword ? 'text' : 'password'}
                 icon={storedShowRepeatPassword ? Visibility : VisibilityOff}
                 iconClick={handleClickIconRepeatPassword}
+                iconId="repeat-password-icon"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -174,6 +178,7 @@ const Form: React.FC = () => {
             rules={{ required: true }}
             render={({ onChange, value, onBlur }) => (
               <CustomInput
+                id="password-hint"
                 label={i18n.t('secondStep:hint-label')}
                 placeholder={i18n.t('secondStep:hint-placeholder')}
                 onBlur={onBlur}

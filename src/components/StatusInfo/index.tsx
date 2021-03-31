@@ -7,7 +7,15 @@ import { IconContainer, LinkContainer, StatusInfoContainer } from './styles';
 import { StatusInfoProps } from './types';
 
 const StatusInfo: React.FC<StatusInfoProps> = (props: StatusInfoProps) => {
-  const { description, icon, onClickLink, textLink, title, type } = props;
+  const {
+    description,
+    icon,
+    idLink,
+    onClickLink,
+    textLink,
+    title,
+    type,
+  } = props;
   const Icon = icon;
   const theme = useTheme();
 
@@ -39,6 +47,7 @@ const StatusInfo: React.FC<StatusInfoProps> = (props: StatusInfoProps) => {
           <CustomLink
             color={theme.palette.primary.main}
             icon={KeyboardArrowRightIcon}
+            id={idLink}
             onClick={onClickLink}
             text={textLink}
           />

@@ -50,6 +50,7 @@ const Form: React.FC = () => {
           rules={{ required: true }}
           render={({ onChange, value, ref }) => (
             <CustomCheckInput
+              id="check-terms"
               label={i18n.t('firstStep:check-terms')}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                 onChange(event.target.checked)

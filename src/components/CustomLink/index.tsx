@@ -4,11 +4,11 @@ import { Link } from './styles';
 import { CustomLinkProps } from './types';
 
 const CustomLink: React.FC<CustomLinkProps> = (props: CustomLinkProps) => {
-  const { icon, onClick } = props;
+  const { id, icon, onClick } = props;
   const Icon = icon;
 
   return (
-    <Link onClick={onClick} color={props.color}>
+    <Link id={id} onClick={onClick} color={props.color}>
       <CustomText {...props} fontSize="0.9rem" fontWeight="bold" />
       {Icon && <Icon style={{ color: props.color }} />}
     </Link>
