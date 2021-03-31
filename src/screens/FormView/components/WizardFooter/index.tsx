@@ -20,6 +20,7 @@ const WizardFooter: React.FC<WizardFooterProps> = (
         {onClickCancel && (
           <Grid item xs={2}>
             <CustomLink
+              id="cancel-button"
               onClick={onClickCancel}
               text={i18n.t('general:cancel')}
             />
@@ -29,6 +30,7 @@ const WizardFooter: React.FC<WizardFooterProps> = (
       <Grid item xs={6} sm={6} md={6} container justify="flex-end">
         <Grid>
           <CustomButton
+            id="form-button"
             backgroundcolor={theme.palette.secondary.dark}
             icon={KeyboardArrowRightIcon}
             onClick={() => null}

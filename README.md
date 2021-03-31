@@ -33,7 +33,7 @@ También, se pueden ver posibles errores lint en la consola.
 
 Si todas las dependencias están instaladas y no se han realizado modificaciones de las mismas, basta con ejecutar `yarn start` o `npm start` para iniciar la aplicación.
 
-## Pruebas
+## Pruebas unitarias
 
 Se ha desarrollado test unitarios para algunos de los componentes; localizados en el mismo directorio que estos (ficheros `index.test.tsx`);
 
@@ -46,7 +46,8 @@ En el fichero `package.json`, se ha configurado jest para permitir el uso de ali
     "coveragePathIgnorePatterns": [
       "styles.ts",
       "types.ts",
-      "theme.ts"
+      "theme.ts",
+      "<rootDir>/src/screens/*"
     ],
     "moduleNameMapper": {
       "^@Components(.*)$": "<rootDir>/src/components$1",
@@ -54,6 +55,20 @@ En el fichero `package.json`, se ha configurado jest para permitir el uso de ali
     }
   }
 ```
+
+## Pruebas end-to-end
+
+Para la elaboración de pruebas end-to-end se ha hecho uso de la librería `cypress`. Esta herramienta se encarga de abrir un navegador de pruebas en el que se accederá, de forma automática, a la web desarrollada y se ejecutarán los test elaborados.
+
+Para iniciar la ejecución será necesario tener la aplicación iniciada. Hecho esto, ejecutando `yarn cypress` o `npm run cypress` se nos abrirá una interfaz con las pruebas disponibles:
+
+![cypress-interface](./src/assets/img/cypress-interface.png)
+
+Pulsando en uno de ellos, se abrirá una copia del navegador que tenemos por defecto en nuestro sistema operativo y se ejecutarán las pruebas:
+
+![cypress-test-example](./src/assets/img/cypress-example.png)
+
+_Se ha optado por la versión 4.10.1 por incompatibilidades entre babel y la última versión de cypress._
 
 ## Estructura del proyecto
 
@@ -126,6 +141,7 @@ Cada vez que se llega a un nuevo paso del formulario, los estados se actualizan 
 ## Dependencias
 
 - [Babel](https://babeljs.io/): Compilador javascript
+- [Cypress](https://www.cypress.io/): Librería de pruebas end-to-end
 - [Eslint](https://eslint.org/): Herramienta para identificar y reportar patrones encontrados en el código ECMAScript/JavaScript
 - [enzyme](https://enzymejs.github.io/enzyme/): Librería para ejecutar tests con jest en React
 - [jest](https://jestjs.io/): Librería de test para JavaScript

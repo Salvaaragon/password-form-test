@@ -31,6 +31,7 @@ const ThirdStep: React.FC = () => {
       {isPosting && <Loading />}
       {isFailed && (
         <StatusInfo
+          idLink="reset-form"
           description={i18n.t('thirdStep:description-ko')}
           icon={ErrorOutlineIcon}
           onClickLink={onClickLink}
@@ -41,6 +42,7 @@ const ThirdStep: React.FC = () => {
       )}
       {!isPosting && !isFailed && (
         <StatusInfo
+          idLink="reset-form"
           description={i18n.t('thirdStep:description-ok')}
           icon={CheckCircleOutlineIcon}
           onClickLink={onClickLink}

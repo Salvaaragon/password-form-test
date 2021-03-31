@@ -6,4 +6,5 @@ export type CustomInputProps = {
   errors?: string;
   icon?: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>;
   iconClick?: () => void;
+  iconId?: string;
 } & OutlinedInputProps;
