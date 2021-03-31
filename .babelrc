@@ -18,6 +18,7 @@
           "@Types": "./src/types"
         }
       }
-    ]
+    ],
+    ["istanbul"]
   ]
 }
