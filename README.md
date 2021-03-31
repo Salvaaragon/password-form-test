@@ -73,6 +73,9 @@ _Se ha optado por la versión 4.10.1 por incompatibilidades entre babel y la úl
 ## Estructura del proyecto
 
     .
+    ├── cypress                     # Configuración y pruebas de cypress
+    │   └── integration             # Pruebas E2E
+    │       └── password-form       # Listado de test desarrollados para la app
     ├── public
     │   └── locales                 # Traducciones
     ├── src                         # Contenido de nuestra aplicación
@@ -86,7 +89,7 @@ _Se ha optado por la versión 4.10.1 por incompatibilidades entre babel y la úl
     │   │       └── types.ts        # Tipos customizados
     │   ├── constants               # Constantes globales
     │   ├── router                  # Configuración de rutas
-    │   ├── screens                 # Pantallas desarrolladas. A su vez pueden contener componentes propios
+    │   ├── screens                 # Pantallas desarrolladas. Pueden contener componentes propios
     │   ├── services                # Configuración de servicios externos (api, i18n, ...)
     │   ├── store                   # Configuración de la store de redux
     │   │   ├── actions             # Listado de acciones
