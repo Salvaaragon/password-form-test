@@ -7,6 +7,7 @@ export const FormViewGrid = styled(Grid)`
 
 export const FormContainerGrid = styled(Grid)`
   padding-top: 4rem;
+  padding-bottom: 4rem;
 
   ${(props) => props.theme.breakpoints.down('sm')} {
     padding-top: 2rem;
