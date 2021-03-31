@@ -70,6 +70,21 @@ Pulsando en uno de ellos, se abrirá una copia del navegador que tenemos por def
 
 _Se ha optado por la versión 4.10.1 por incompatibilidades entre babel y la última versión de cypress._
 
+## Cobertura de código
+
+Se han incluido varios scripts para generar la combinación de las coberturas de código generadas por jest y cypress.
+Para la correcta obtención de la misma se requiren los siguientes pasos:
+
+1. Lanzar tests unitarios con `yarn test` o `npm test`
+2. Una vez lanzados, ejecutar uno de los siguientes scripts, para mover la cobertura de código generada por jest a un directorio temporal, en función de nuestro sistema operativo:
+   - Linux: `yarn jest-cover-linux` o `npm run jest-cover-linux`
+   - Windows: `yarn jest-cover-win` o `npm run jest-cover-win`
+3. Ahora, ejecuta todos los test de cypress accediendo a la plataforma con `yarn cypress` o `npm run cypress` y pulsando en Run all specs.
+4. Combinamos las coberturas de código, almacenadas actualmente en .nyc_output, con `yarn merge-cover` o `npm run merge-cover`. Esto generará un archivo coverage.json en el directorio ./coverage
+5. Por último, ejecutamos `yarn report-cover` o `npm run report-cover` para crear el reporte con el formato válido en el directorio ./coverage/lcov-report. Podemos ver el resultado abriendo el archivo `index.html`, de dicho directorio, en nuestro navegador.
+
+![coverage-report](./src/assets/img/coverage-report.png)
+
 ## Estructura del proyecto
 
     .
