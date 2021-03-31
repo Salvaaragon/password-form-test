@@ -18,7 +18,7 @@ const LanguageSelector = () => {
     <div>
       <IconButton
         ariaLabel="es"
-        disabled={i18n.language === 'es'}
+        disabled={i18n.language === 'es' || i18n.language === 'es-ES'}
         iconAlt="spanish"
         iconSrc={SpanishFlag}
         iconWidth="1.5rem"
