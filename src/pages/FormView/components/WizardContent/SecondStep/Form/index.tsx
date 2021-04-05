@@ -59,23 +59,20 @@ const Form: React.FC = () => {
   const schema = yup.object().shape({
     password: yup
       .string()
-      .required(i18n.t('secondStep:required-field'))
-      .min(PASSWORD_MIN_LENGTH, i18n.t('secondStep:password-error-length-min'))
-      .max(PASSWORD_MAX_LENGTH, i18n.t('secondStep:password-error-length-max'))
-      .matches(
-        /(?=.*\d)(?=.*[A-Z]).*/,
-        i18n.t('secondStep:password-error-format'),
-      ),
+      .required('secondStep:required-field')
+      .min(PASSWORD_MIN_LENGTH, 'secondStep:password-error-length-min')
+      .max(PASSWORD_MAX_LENGTH, 'secondStep:password-error-length-max')
+      .matches(/(?=.*\d)(?=.*[A-Z]).*/, 'secondStep:password-error-format'),
     repeatPassword: yup
       .string()
-      .required(i18n.t('secondStep:required-field'))
+      .required('secondStep:required-field')
       .oneOf(
         [yup.ref('password'), null],
-        i18n.t('secondStep:repeat-password-error-match'),
+        'secondStep:repeat-password-error-match',
       ),
     passwordHint: yup
       .string()
-      .max(HINT_MAX_LENGTH, i18n.t('secondStep:hint-error-length-max')),
+      .max(HINT_MAX_LENGTH, 'secondStep:hint-error-length-max'),
   });
 
   const handleClickIconPassword = () => {
@@ -144,7 +141,9 @@ const Form: React.FC = () => {
                     trigger('repeatPassword');
                 }}
                 value={value}
-                errors={errors.password?.message}
+                errors={
+                  errors.password?.message && i18n.t(errors.password.message)
+                }
                 fullWidth
               />
             )}
@@ -168,7 +167,10 @@ const Form: React.FC = () => {
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
-                errors={errors.repeatPassword?.message}
+                errors={
+                  errors.repeatPassword?.message &&
+                  i18n.t(errors.repeatPassword.message)
+                }
                 fullWidth
               />
             )}
@@ -196,7 +198,10 @@ const Form: React.FC = () => {
                   onChange(event.target.value)
                 }
                 value={value}
-                errors={errors.passwordHint?.message}
+                errors={
+                  errors.passwordHint?.message &&
+                  i18n.t(errors.passwordHint.message)
+                }
                 fullWidth
               />
             )}
