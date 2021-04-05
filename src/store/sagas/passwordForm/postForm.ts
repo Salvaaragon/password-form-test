@@ -1,4 +1,4 @@
-import { submitForm } from '@Services/api';
+import { submitForm } from '@Services/api/submitForm';
 import { ReduxAction } from '@Store/actions';
 import { postFormDone, postFormError } from '@Store/actions/passwordForm';
 import { POST_FORM } from '@Store/constants/passwordForm';

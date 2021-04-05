@@ -1,6 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core';
 import Router from '@Router';
-import i18n from '@Services/i18n';
+import i18n from '@Services/i18n/config';
 import configureStore from '@Store/configStore';
 import theme from '@Styles/theme';
 import React, { Suspense } from 'react';
