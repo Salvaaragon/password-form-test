@@ -25,4 +25,8 @@ const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) => {
   );
 };
 
+IconButton.defaultProps = {
+  id: '',
+};
+
 export default IconButton;

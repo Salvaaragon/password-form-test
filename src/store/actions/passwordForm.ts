@@ -12,7 +12,7 @@ import {
   SET_SHOW_REPEAT_PASSWORD,
 } from '@Store/constants/passwordForm';
 import { StepType } from '@Types/passwordForm';
-import { ReduxAction } from '..';
+import { ReduxAction } from '.';
 
 export const setActiveStep = (step: StepType): ReduxAction => {
   return {

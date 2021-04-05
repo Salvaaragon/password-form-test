@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const CustomFormHelperText = styled(FormHelperText)`
   &.MuiFormHelperText-root {
-    font-family: Quicksand;
     margin: 0;
   }
 `;

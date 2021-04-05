@@ -1,19 +1,20 @@
 import CustomCheckInput from '@Components/CustomCheckInput';
 import { SET_PASSWORD_STEP } from '@Constants/passwordForm';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { DataContainer } from '@Screens/FormView/components/WizardContent/styles';
-import WizardFooter from '@Screens/FormView/components/WizardFooter';
-import i18n from '@Services/i18n';
+import { DataContainer } from '@Pages/FormView/components/WizardContent/styles';
+import WizardFooter from '@Pages/FormView/components/WizardFooter';
 import { CHECK_TERMS, SET_ACTIVE_STEP } from '@Store/constants/passwordForm';
 import { RootState } from '@Store/reducers';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { FormValues } from './types';
 
 const Form: React.FC = () => {
   const dispatch = useDispatch();
+  const { i18n } = useTranslation();
 
   const storedCheckTerms = useSelector(
     (state: RootState) => state.passwordFormReducer.checkTerms,

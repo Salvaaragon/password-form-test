@@ -22,4 +22,8 @@ const CustomCheckInput: React.FC<CustomCheckInputProps> = (
   );
 };
 
+CustomCheckInput.defaultProps = {
+  errors: '',
+};
+
 export default CustomCheckInput;

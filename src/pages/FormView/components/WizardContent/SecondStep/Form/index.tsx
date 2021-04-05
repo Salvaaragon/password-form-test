@@ -6,8 +6,8 @@ import {
 } from '@Constants/passwordForm';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import { DataContainer } from '@Screens/FormView/components/WizardContent/styles';
-import WizardFooter from '@Screens/FormView/components/WizardFooter';
+import { DataContainer } from '@Pages/FormView/components/WizardContent/styles';
+import WizardFooter from '@Pages/FormView/components/WizardFooter';
 import {
   POST_FORM,
   SET_ACTIVE_STEP,
@@ -63,7 +63,7 @@ const Form: React.FC = () => {
       .min(PASSWORD_MIN_LENGTH, i18n.t('secondStep:password-error-length-min'))
       .max(PASSWORD_MAX_LENGTH, i18n.t('secondStep:password-error-length-max'))
       .matches(
-        /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*/,
+        /(?=.*\d)(?=.*[A-Z]).*/,
         i18n.t('secondStep:password-error-format'),
       ),
     repeatPassword: yup
@@ -107,7 +107,13 @@ const Form: React.FC = () => {
     dispatch({ type: SET_ACTIVE_STEP, payload: REQUEST_STATUS_STEP });
   };
 
-  const { handleSubmit, errors, control, formState } = useForm<FormValues>({
+  const {
+    handleSubmit,
+    errors,
+    control,
+    formState,
+    trigger,
+  } = useForm<FormValues>({
     defaultValues,
     mode: 'all',
     reValidateMode: 'onBlur',
@@ -132,7 +138,11 @@ const Form: React.FC = () => {
                 iconClick={handleClickIconPassword}
                 iconId="password-icon"
                 onBlur={onBlur}
-                onChange={onChange}
+                onChange={(event) => {
+                  onChange(event);
+                  if (formState.touched.repeatPassword)
+                    trigger('repeatPassword');
+                }}
                 value={value}
                 errors={errors.password?.message}
                 fullWidth

@@ -16,8 +16,9 @@ i18n
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-    fallbackLng: ['en'],
     debug: true,
+    fallbackLng: ['en'],
+    supportedLngs: ['en', 'es'],
     ns: namespaces,
     defaultNS: 'general',
     keySeparator: '.',

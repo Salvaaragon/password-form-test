@@ -45,4 +45,9 @@ const WizardFooter: React.FC<WizardFooterProps> = (
   );
 };
 
+WizardFooter.defaultProps = {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClickCancel: () => {},
+};
+
 export default WizardFooter;

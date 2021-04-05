@@ -2,13 +2,27 @@
 
 ## Descripción
 
-Aplicación desarrollada como prueba que consiste en un formulario para creación de contraseña en tres pasos:
+Aplicación desarrollada mediante la librería React que consiste en un formulario para creación de contraseña en tres pasos:
 
 1. Explicación y aceptación de condiciones
 2. Introducción de contraseña y pista
 3. Envío y feedback a la API
 
 [Demo](https://password-form-test.netlify.app/)
+
+## Desarrollo
+
+Para la elaboración de este proyecto se ha optado inicialmente por hacer uso de TypeScript. Mediante este lenguaje conseguimos asegurar todos los tipos que se mueven a lo largo de la aplicación y que esta funcione correctamente.
+
+El proyecto ha sido configurado con las herramientas [prettier y eslint](#formato-de-código-eslint--prettier) a fin de asegurar que se cumplen los estándares de sintáxis de código y se realiza un formato del mismo.
+
+Para la interfaz se hace uso de la librería [Material UI](https://material-ui.com/), que nos facilita diversos componentes de UI, junto a [Styled components](https://styled-components.com/), para añadir ciertos estilos específicos y customizados de la aplicación. Todas las secciones de la web son responsive; lo que permite una visualización amigable para distintas resoluciones de pantalla de distintos dispositivos.
+
+Cada componente que se ha desarrollado se almacena en una carpeta con el nombre definido para él y en su interior se divide en los ficheros `index.tsx`, `logic.ts` `types.ts`, `styles.ts` y `index.test.tsx`. De esta forma mantenemos una estructura con una clara división de los elementos y que nos permite que, en caso de que el componente deje de tener sentido en nuestro proyecto y no se use, simplemente tendremos que eliminar el directorio del mismo.
+
+Para mantener el estado global de la aplicación se usa [redux](https://es.redux.js.org/) y [redux-saga](#Redux-saga). La ventaja de esta librería es que nos facilita el manejo y mantenimiento de la store, pudiendo acceder a cualquier estado en cualquier lugar de la aplicación de forma sencilla, y la gestión de los estados que van mutando en base a las acciones y las llamadas api (en nuestro caso, el envío del formulario).
+
+En cuanto al testing, se han desarrollado tanto [test unitarios](#pruebas-unitarias) con Jest y Enzyme, para probar los componentes que se han desarrollado y sus propiedades, y [test E2E](#pruebas-end-to-end) mediante Cypress, para comprobar el funcionamiento de la aplicación interactuando con ella de la misma forma que lo haría el usuario. Se ha optado por estas herramientas dada su facilidad de uso y su buena conexión con React.
 
 ## Aplicación
 
@@ -47,7 +61,7 @@ En el fichero `package.json`, se ha configurado jest para permitir el uso de ali
       "styles.ts",
       "types.ts",
       "theme.ts",
-      "<rootDir>/src/screens/*"
+      "<rootDir>/src/pages/*"
     ],
     "moduleNameMapper": {
       "^@Components(.*)$": "<rootDir>/src/components$1",
@@ -68,8 +82,6 @@ Pulsando en uno de ellos, se abrirá una copia del navegador que tenemos por def
 
 ![cypress-test-example](./src/assets/img/cypress-example.png)
 
-_Se ha optado por la versión 4.10.1 por incompatibilidades entre babel y la última versión de cypress._
-
 ## Cobertura de código
 
 Se han incluido varios scripts para generar la combinación de las coberturas de código generadas por jest y cypress.
@@ -89,8 +101,11 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
 
     .
     ├── cypress                     # Configuración y pruebas de cypress
-    │   └── integration             # Pruebas E2E
-    │       └── password-form       # Listado de test desarrollados para la app
+    │   │   integration             # Pruebas E2E
+    │   │   └── password-form       # Listado de test desarrollados para la app
+    │   ├── plugins                 # Configuración de plugins usados por cypress
+    │   ├── support                 # Librerías requeridas por los tests
+    │   └── .babelrc                # Configuración de babel requerida para los tests
     ├── public
     │   └── locales                 # Traducciones
     ├── src                         # Contenido de nuestra aplicación
@@ -103,8 +118,8 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
     │   │       ├── styles.ts       # Estilos
     │   │       └── types.ts        # Tipos customizados
     │   ├── constants               # Constantes globales
+    │   ├── pages                   # Lista de páginas o pantallas de la web. Pueden contener componentes propios
     │   ├── router                  # Configuración de rutas
-    │   ├── screens                 # Pantallas desarrolladas. Pueden contener componentes propios
     │   ├── services                # Configuración de servicios externos (api, i18n, ...)
     │   ├── store                   # Configuración de la store de redux
     │   │   ├── actions             # Listado de acciones
@@ -113,6 +128,7 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
     │   │   └── sagas               # Manejadores de los side effects
     │   ├── styles                  # Configuración del tema y estilos base
     │   ├── types                   # Tipos globales
+    │   ├── App.tsx
     │   ├── index.css
     │   ├── index.tsx
     │   └── react-app-env.d.ts
@@ -120,8 +136,10 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
     ├── .eslintignore
     ├── .eslintrc.js                # Configuración de la herramienta eslint
     ├── .gitignore
+    ├── .nycrc                      # Configuración de nyc para la cobertura de código
     ├── .prettierrc.js              # Configuración de Prettier
     ├── .rescriptsrc.js
+    ├── .cypress.json               # Configuración base de cypress
     ├── package-lock.json
     ├── package.json
     ├── README.md
@@ -129,11 +147,9 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
     ├── tsconfig.paths.json         # Listado de alias
     └── yarn.lock
 
-## Alias
+## Rescripts y alias
 
-Se han configurado mediante la librería Babel distintos alias para simplificar las importaciones de los distintos elementos de la aplicación. Estos están alojados en los ficheros `.babelrc` y `.tsconfig.paths.json`.
-
-Además, utilizamos la librería rescripts para facilitar el uso de dichos alias en la ejecución de nuestra app.
+Se hace uso de la librería rescripts para poder cargar la configuración de la librería Babel; de forma que, mediante esta última, se han configurado distintos alias para simplificar las importaciones de los distintos elementos de la aplicación. Estos están alojados en los ficheros `.babelrc` y `.tsconfig.paths.json`.
 
 ## Formato de código (Eslint + Prettier)
 
@@ -147,6 +163,12 @@ Además, se hace uso de la herramienta Prettier; de manera que, conectada con el
   singleQuote: true // Uso de comillas simples
   tabWidth: 2 // Indentación con dos espacios
 ```
+
+## React-hook-form y yup
+
+Como librería de manejo de formularios hemos decidido utilizar `react-hook-form` debido a su simplicidad de configuración y el manejo de los estados para evitar el renderizado múltiple que causan otras librerías de mismo cometido.
+
+En cuanto a la validación del formulario, usamos `yup` por su facilidad de creación de esquemas de validación para distintos tipos de datos.
 
 ## Redux-saga
 
@@ -164,6 +186,7 @@ Cada vez que se llega a un nuevo paso del formulario, los estados se actualizan 
 - [enzyme](https://enzymejs.github.io/enzyme/): Librería para ejecutar tests con jest en React
 - [jest](https://jestjs.io/): Librería de test para JavaScript
 - [Material UI](https://material-ui.com/): Librería de componentes front
+- [nyc](https://github.com/istanbuljs/nyc): Obtención de cobertura de código
 - [Prettier](https://prettier.io/): Formateador de código
 - [React](https://es.reactjs.org/): Librería para construir interfaces de usuario con JavaScript
 - [React Hook Form](https://react-hook-form.com/): Librería de formularios para React
@@ -171,6 +194,7 @@ Cada vez que se llega a un nuevo paso del formulario, los estados se actualizan 
 - [Redux](https://es.redux.js.org/): Contenedor de estados
 - [Redux-saga](https://redux-saga.js.org/): Librería de manejo de estados
 - [React-i18next](https://react.i18next.com/): Plugin de internacionalización basado en i18next
+- [Rescripts](https://github.com/harrysolovay/rescripts): framework para ejecución de scripts de configuración
 - [Styled components](https://styled-components.com/): Uso de etiquetas de plantilla para estilar componentes
 - [TypeScript](https://www.typescriptlang.org/)
 - [Yup](https://github.com/jquense/yup): Librería para validación de formularios

@@ -18,7 +18,6 @@ export const CustomOutlinedInput = styled(OutlinedInput)`
     }
 
     &.MuiInputBase-root {
-      font-family: Quicksand;
       color: ${(props) => props.theme.palette.secondary.main};
     }
   }
@@ -35,7 +34,6 @@ export const CustomOutlinedInput = styled(OutlinedInput)`
 export const CustomInputLabel = styled(InputLabel)`
   &.MuiFormLabel-root {
     color: ${(props) => props.theme.palette.secondary.dark};
-    font-family: Quicksand;
     font-size: 1.2rem;
     font-weight: bold;
   }

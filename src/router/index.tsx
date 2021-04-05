@@ -1,4 +1,4 @@
-import FormView from '@Screens/FormView';
+import FormView from '@Pages/FormView';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
