@@ -6,9 +6,9 @@
       "@Constants/*": ["src/constants/*"],
       "@Components/*": ["src/components/*"],
       "@Locale/*": ["src/locale/*"],
+      "@Pages/*": ["src/pages/*"],
       "@Router": ["src/router"],
       "@Services/*": ["src/services/*"],
-      "@Screens/*": ["src/screens/*"],
       "@Store/*": ["src/store/*"],
       "@Styles/*": ["src/styles/*"],
       "@Types/*": ["src/types/*"]

@@ -67,7 +67,7 @@
       "styles.ts",
       "types.ts",
       "theme.ts",
-      "<rootDir>/src/screens/*"
+      "<rootDir>/src/pages/*"
     ],
     "moduleNameMapper": {
       "^@Components(.*)$": "<rootDir>/src/components$1",

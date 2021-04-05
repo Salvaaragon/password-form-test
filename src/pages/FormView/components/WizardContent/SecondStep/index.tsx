@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import {
   DataContainer,
   TitleLine,
-} from '@Screens/FormView/components/WizardContent/styles';
+} from '@Pages/FormView/components/WizardContent/styles';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Form from './Form';
