@@ -5,12 +5,14 @@ import { CustomTypographyProps } from './types';
 export const CustomTypography = styled(Typography).attrs(
   (props: CustomTypographyProps) => props,
 )`
-  color: ${(props) => props.customcolor} !important;
-  font-family: ${(props) => props.fontFamily} !important;
-  font-size: ${(props) => props.fontSize} !important;
-  font-style: ${(props) => props.fontStyle} !important;
-  font-weight: ${(props) => props.fontWeight} !important;
-  letter-spacing: ${(props) => props.letterSpacing} !important;
-  line-height: ${(props) => props.lineHeight} !important;
-  text-align: ${(props) => props.align} !important;
+  &.MuiTypography-body1 {
+    color: ${(props) => props.customcolor};
+    font-family: ${(props) => props.fontFamily};
+    font-size: ${(props) => props.fontSize};
+    font-style: ${(props) => props.fontStyle};
+    font-weight: ${(props) => props.fontWeight};
+    letter-spacing: ${(props) => props.letterSpacing};
+    line-height: ${(props) => props.lineHeight};
+    text-align: ${(props) => props.align};
+  }
 `;

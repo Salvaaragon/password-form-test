@@ -16,6 +16,7 @@ const CustomText: React.FC<CustomTextProps> = (props: CustomTextProps) => {
       fontWeight={fontWeight}
       letterSpacing={letterSpacing}
       lineheight={lineHeight}
+      variant="body1"
       {...loadTextColor(color ? color : 'secondary')}
     >
       {text}

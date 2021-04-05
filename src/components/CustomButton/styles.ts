@@ -6,7 +6,6 @@ export const CustomBtn = styled(Button).attrs((props: CustomBtnProps) => props)`
   &.MuiButton-root {
     background-color: ${(props) => props.backgroundcolor};
     color: ${(props) => props.textcolor};
-    font-family: Quicksand;
     text-transform: none;
     font-weight: bold;
     border-radius: 0;

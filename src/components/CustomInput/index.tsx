@@ -46,4 +46,12 @@ const CustomInput: React.FC<CustomInputProps> = (props: CustomInputProps) => {
   );
 };
 
+CustomInput.defaultProps = {
+  errors: '',
+  icon: undefined,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  iconClick: () => {},
+  iconId: '',
+};
+
 export default CustomInput;

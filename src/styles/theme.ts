@@ -18,6 +18,9 @@ declare module '@material-ui/core/styles/createPalette' {
 }
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Quicksand',
+  },
   palette: {
     primary: {
       main: '#FF0049',

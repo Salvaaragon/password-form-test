@@ -5,7 +5,6 @@ export const CustomFormControlLabel = styled(FormControlLabel)`
   color: ${(props) => props.theme.palette.secondary.main};
 
   .MuiTypography-body1 {
-    font-family: Quicksand;
     font-size: 0.9rem;
     font-weight: bold;
   }

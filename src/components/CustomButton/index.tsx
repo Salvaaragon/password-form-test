@@ -16,4 +16,8 @@ const CustomButton: React.FC<CustomButtonProps> = (
   );
 };
 
+CustomButton.defaultProps = {
+  icon: undefined,
+};
+
 export default CustomButton;
