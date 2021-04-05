@@ -25,9 +25,7 @@ const Form: React.FC = () => {
   };
 
   const schema = yup.object().shape({
-    checkTerms: yup
-      .boolean()
-      .oneOf([true], i18n.t('firstStep:check-terms-error')),
+    checkTerms: yup.boolean().oneOf([true], 'firstStep:check-terms-error'),
   });
 
   const onSubmit = (data: FormValues) => {
@@ -57,7 +55,9 @@ const Form: React.FC = () => {
                 onChange(event.target.checked)
               }
               checked={value}
-              errors={errors.checkTerms?.message}
+              errors={
+                errors.checkTerms?.message && i18n.t(errors.checkTerms.message)
+              }
               inputRef={ref}
             />
           )}
