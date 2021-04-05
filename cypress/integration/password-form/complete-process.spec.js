@@ -6,7 +6,15 @@ context('Complete form tests', () => {
   });
 
   it('Complete flow Success - Fill success full form', () => {
-    cy.get('#language-en').click().wait(2000);
+    cy.get('#language-en')
+      .wait(2000)
+      .then((langBtn) => {
+        if (langBtn.hasClass('Mui-disabled')) {
+          cy.get('#language-es').click().wait(2000);
+        } else {
+          cy.get('#language-en').click().wait(2000);
+        }
+      });
     cy.get('#check-terms').click().wait(2000);
     cy.get('#form-button').click().wait(2000);
     cy.get('#password')
@@ -22,7 +30,15 @@ context('Complete form tests', () => {
   });
 
   it('Complete flow Error - Fill error full form', () => {
-    cy.get('#language-en').click().wait(2000);
+    cy.get('#language-en')
+      .wait(2000)
+      .then((langBtn) => {
+        if (langBtn.hasClass('Mui-disabled')) {
+          cy.get('#language-es').click().wait(2000);
+        } else {
+          cy.get('#language-en').click().wait(2000);
+        }
+      });
     cy.get('#check-terms').click().wait(2000);
     cy.get('#form-button').click().wait(2000);
     cy.get('#password')
