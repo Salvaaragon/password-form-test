@@ -1,0 +1,15 @@
+{
+  "password-label": "Crea tu Contraseña Maestra",
+  "password-placeholder": "Contraseña",
+  "password-error-length-min": "Se requieren mínimo 8 caracteres",
+  "password-error-length-max": "Se requieren máximo 24 caracteres",
+  "password-error-format": "Se requieren al menos un número y una mayúscula",
+  "repeat-password-label": "Repite tu Contraseña Maestra",
+  "repeat-password-placeholder": "Repite tu contraseña",
+  "repeat-password-error-match": "Las contraseñas no coinciden",
+  "required-field": "Este campo es obligatorio",
+  "hint-info": "También puedes crear una pista que te ayude a recordar tu contraseña maestra",
+  "hint-label": "Crea tu pista para recordar tu contraseña (opcional)",
+  "hint-placeholder": "Introduce tu pista",
+  "hint-error-length-max": "Máximo 255 caracteres"
+}
