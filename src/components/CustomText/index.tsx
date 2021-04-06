@@ -1,6 +1,5 @@
 import React from 'react';
-import { loadTextColor } from './logic';
-import { CustomTypography } from './styles';
+import { CustomTypography, loadTextColor } from './styles';
 import { CustomTextProps } from './types';
 
 const CustomText: React.FC<CustomTextProps> = (props: CustomTextProps) => {

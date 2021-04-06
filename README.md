@@ -76,11 +76,11 @@ Para la elaboración de pruebas end-to-end se ha hecho uso de la librería `cypr
 
 Para iniciar la ejecución será necesario tener la aplicación iniciada. Hecho esto, ejecutando `yarn cypress` o `npm run cypress` se nos abrirá una interfaz con las pruebas disponibles:
 
-![cypress-interface](./src/assets/img/cypress-interface.png)
+![cypress-interface](./readme_images/cypress-interface.png)
 
 Pulsando en uno de ellos, se abrirá una copia del navegador que tenemos por defecto en nuestro sistema operativo y se ejecutarán las pruebas:
 
-![cypress-test-example](./src/assets/img/cypress-example.png)
+![cypress-test-example](./readme_images/cypress-example.png)
 
 ## Cobertura de código
 
@@ -95,7 +95,7 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
 4. Combinamos las coberturas de código, almacenadas actualmente en .nyc_output, con `yarn merge-cover` o `npm run merge-cover`. Esto generará un archivo coverage.json en el directorio ./coverage
 5. Por último, ejecutamos `yarn report-cover` o `npm run report-cover` para crear el reporte con el formato válido en el directorio ./coverage/lcov-report. Podemos ver el resultado abriendo el archivo `index.html`, de dicho directorio, en nuestro navegador.
 
-![coverage-report](./src/assets/img/coverage-report.png)
+![coverage-report](./readme_images/coverage-report.png)
 
 ## Estructura del proyecto
 
@@ -108,13 +108,13 @@ Para la correcta obtención de la misma se requiren los siguientes pasos:
     │   └── .babelrc                # Configuración de babel requerida para los tests
     ├── public
     │   └── locales                 # Traducciones
+    ├── readme_images               # Imágenes usadas en este documento
     ├── src                         # Contenido de nuestra aplicación
     │   ├── assets                  # Imágenes e iconos
     │   ├── components              # Componentes desarrollados
     │   │   └── ExampleComponent
     │   │       ├── index.test.tsx  # Tests
     │   │       ├── index.tsx       # Definición
-    │   │       ├── logic.ts        # Algun tipo de lógica propia
     │   │       ├── styles.ts       # Estilos
     │   │       └── types.ts        # Tipos customizados
     │   ├── constants               # Constantes globales

@@ -15,7 +15,7 @@ const LanguageSelector = () => {
   };
 
   return (
-    <div>
+    <>
       <IconButton
         ariaLabel="es"
         disabled={i18n.language === 'es' || i18n.language === 'es-ES'}
@@ -34,7 +34,7 @@ const LanguageSelector = () => {
         id="language-en"
         onClick={() => changeLanguage('en')}
       />
-    </div>
+    </>
   );
 };
 
