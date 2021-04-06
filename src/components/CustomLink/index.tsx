@@ -18,6 +18,7 @@ const CustomLink: React.FC<CustomLinkProps> = (props: CustomLinkProps) => {
 CustomLink.defaultProps = {
   id: '',
   icon: undefined,
+  color: '#FFF',
 };
 
 export default CustomLink;
